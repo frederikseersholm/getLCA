@@ -5,6 +5,7 @@ GUIDE TO RUN THE SCRIPT getLCA.py
 #################################
 
 1) Download the NCBI taxonomy files, names.dmp and nodes.dmp
+
     mkdir taxdump
     wget ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
     tar -xzf taxdump.tar.gz -C taxdump
@@ -17,10 +18,12 @@ GUIDE TO RUN THE SCRIPT getLCA.py
     bowtie2 -k 500 -p 24 -f -x $DB -U $file --no-unal > $filename.unsorted.sam
     
 4) Sort samfile
+
     sort -k1 $filename.unsorted.sam > $filename.sam
     rm $filename.unsorted.sam
 
 5) Assign LCA
+
     python get_LCA.py $filename.sam
     
 OPTIONAL:
