@@ -25,4 +25,5 @@ GUIDE TO RUN THE SCRIPT getLCA.py
     
 OPTIONAL:
 6) Report a sorted list of vertebrate species assigned below family level:
+
     cat $filename.getLCA|grep -v 'NOMATCH'|grep 'genus\|family\|species\|subfamily\|subspecies\|subgenus'|grep 'Vertebrata'|awk '{print $2}'|sort|uniq -c|sort -nk1|awk -F ':' '{print $1}'
