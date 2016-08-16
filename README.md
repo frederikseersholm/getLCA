@@ -15,7 +15,7 @@ GUIDE TO RUN THE SCRIPT getLCA.py
 
 3) Map reads to DB using bowtie (or a mapper of your choice) - see 'Prepare_ref_DB_guide.txt' 
     
-    bowtie2 -k 500 -p 24 -f -x $DB -U $file --no-unal > $filename.unsorted.sam
+    bowtie2 -k 500 -p 24 -f -x $DB -U $infile --no-unal > $filename.unsorted.sam
     
 4) Sort samfile
 
