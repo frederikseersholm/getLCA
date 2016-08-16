@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-names=open('/Users/frederikseersholm1/Frederik/Uni/Kandidat/Master_thesis/midden_project_merged/Databases/TAXO/names.dmp','r')
-nodes=open('/Users/frederikseersholm1/Frederik/Uni/Kandidat/Master_thesis/midden_project_merged/Databases/TAXO/nodes.dmp','r')
+names=open('/PATH/to/FILE/TAXO/names.dmp','r')
+nodes=open('/PATH/to/FILE/TAXO/nodes.dmp','r')
 
 
 name={}
