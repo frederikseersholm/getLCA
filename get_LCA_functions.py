@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-names=open('/PATH/to/FILE/TAXO/names.dmp','r')
-nodes=open('/PATH/to/FILE/TAXO/nodes.dmp','r')
+names=open('/PATH/to/FILE/taxdump/names.dmp','r')
+nodes=open('/PATH/to/FILE/taxdump/nodes.dmp','r')
 
 
 name={}
