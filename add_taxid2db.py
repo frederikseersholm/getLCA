@@ -32,7 +32,7 @@ def main():
         gi_dict[gi_nr]='TAXID_NOT_FOUND'
 ####################
     count=0
-    filelist=glob.glob('/Users/frederikseersholm1/Frederik/Uni/Kandidat/Master_thesis/midden_project_merged/Databases/gi_taxid_nucl.dmp.*')
+    filelist=glob.glob('/PATH/to/FILE/gi_taxid_nucl.dmp.*')
 
     for gi_name in filelist:
         count+=1
