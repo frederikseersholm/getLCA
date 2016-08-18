@@ -13,7 +13,7 @@ GUIDE TO RUN THE SCRIPT getLCA.py
 
 2) Update the paths to names.dmp and nodes.dmp on line 3 and 4 in the script get_LCA_functions.py
 
-3) Map reads to DB using bowtie (or a mapper of your choice) - see 'Prepare_ref_DB_guide.txt' 
+3) Map reads to DB using bowtie (or a mapper of your choice) - see [a link](https://github.com/frederikseersholm/getLCA/blob/master/Prepare_ref_DB_guide.md)Prepare_ref_DB_guide.md 
     
     bowtie2 -k 500 -p 24 -f -x $DB -U $infile --no-unal > $filename.unsorted.sam
     
