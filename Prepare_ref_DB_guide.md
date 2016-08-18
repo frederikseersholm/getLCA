@@ -3,6 +3,7 @@
 Below is a step-by-step guide to prepare the reference database in order to apply the python scripts included in this folder.
 
 1) Create a folder for DB files
+
     mkdir DBfiles_getLCA
     cd DBfiles_getLCA
 
