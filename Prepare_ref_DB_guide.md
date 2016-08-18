@@ -12,6 +12,7 @@ Below is a step-by-step guide to prepare the reference database in order to appl
     rm mitochondrion.?.1.genomic.fna
     
 3) Download the NCBI index with gi numbers and their corresponding taxids
+
     wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/gi_taxid_nucl.dmp.gz
     gunzip gi_taxid_nucl.dmp.gz
     split -l 50000000 gi_taxid_nucl.dmp gi_taxid_nucl.dmp.
@@ -26,6 +27,7 @@ open file 'add_taxid2db.py' on line 35, add the correct path to your 'gi_taxid_n
 
 OPTIONAL, if you're using bowtie: 
 6) Build bowtie2 index
+
     bowtie2-build mitochondrion.genomic.taxid.fasta mitochondrion.genomic.taxid.fasta
 
 DONE!
