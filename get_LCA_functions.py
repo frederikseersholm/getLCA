@@ -21,9 +21,7 @@ for line in names.readlines():
     
     id_from_name[text[1]]=text[0]
     if text[3]=='scientific name':
-        name[text[0]]=text[1]
-        
-name['110190']='Saqqaq'            
+        name[text[0]]=text[1]          
 
 lines_processed = 0        
 for line in nodes.readlines():
@@ -50,26 +48,20 @@ def name1(taxid):
     textname=name[taxid]
     return(textname)
             
-def find_family(current_taxid):#find_family('39089')
-    # first look up the taxid for the species of interest
-    
+def find_family(current_taxid):
     parents=[] 
-    # use a while loop to continue searching until we find what we are looking for
     found = False
     while found == False:
         parents.append(name[current_taxid])
         # find the rank of the parent
         if (current_taxid == '1'):
-            #print 'hej'
             return('NOFAMILY_FOUND')
             found = True
         elif (rank[current_taxid] == 'family'):
-            #print 'hej'
             return(name[current_taxid])
             found = True      
         else:
             current_taxid = parent[current_taxid]
-            #print current_taxid
 
 def get_rank(lca):
     if lca!='NOMATCH_1_ID_only':
@@ -86,24 +78,17 @@ def get_rank(lca):
 
 
 def find_parents(current_taxid):
-    # first look up the taxid for the species of interest
-    
     parents=[] 
-    # use a while loop to continue searching until we find what we are looking for
     found = False
     while found == False:
         parents.append(name[current_taxid])
         # find the rank of the parent
         if (current_taxid == '1'):
-            #print 'hej'
             return(parents)
             found = True      
         else:
             current_taxid = parent[current_taxid]
 
-
-
-    
 
 def find_LCA(taxid1,taxid2):
     for i in find_parents(taxid1):
@@ -120,9 +105,7 @@ def taxidlist2LCA(taxid_list):
         if count==1:
             prev_LCA_id=taxid
             continue
-
         else:
-            
             try:
                 prev_LCA_id=id_from_name[find_LCA(taxid,prev_LCA_id)]
             except:
