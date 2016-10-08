@@ -1,5 +1,5 @@
 def get_LCA_from_sam(samlines):
-    from get_LCA_functions import taxidlist2LCA,find_parents,get_rank,find_rankofparents,name1
+    from get_LCA_functions import taxidlist2LCA,find_parents,get_rank,find_rankofparents,name1, find_family,id_from_name
     nms=[]
     threshold=[]
     ids=[]
@@ -11,10 +11,10 @@ def get_LCA_from_sam(samlines):
             if 'NM:' in i:
                 nm=int(i.split(':')[2])
                 nms.append(nm)
-     
+
     samlines.sort(key=dict(zip(samlines, nms)).get)
     nms.sort()
-    threshold=nms[0]
+    threshold=nms[0]#+1
 #########################append tax ids with NM score over 'threshold'#################
     for line,nm in zip(samlines,nms):
         text=line.split()
@@ -28,14 +28,16 @@ def get_LCA_from_sam(samlines):
 ####################find LCA if more than 1 id has been accepted################ 
     try:
         lca=taxidlist2LCA(ids)
+        family=find_family(lca)
         lca=':'.join(find_parents(lca)).replace(' ','_')
     except:
         lca='NOMATCH_TAXID_NOT_FOUND'
-    
-    idp=nms[0]/float(l_seq) 
+        family='FAMILY_NOT_FOUND'
+
+    idp=nms[0]/float(l_seq)
     if (idp>0.05):#Similarity threshold set to 95%
-        lca='NOMATCH_similarity_below_95%'+lca 
-   
+        lca='NOMATCH_similarity_below_95%'+lca
+
 ##################output line###############  
     stats='tothits:'+str(len(samlines))+'_accepted-hits:'+str(len(ids))+'_Min-NM:'+str(nms[0])
-    return('\t'.join([text[0],lca,get_rank(lca).replace(' ','_'),':'.join(ids),stats,l_seq,seq])+'\n')
+    return('\t'.join([text[0],lca,get_rank(lca).replace(' ','_'),':'.join(ids),stats,l_seq,seq,family])+'\n')
