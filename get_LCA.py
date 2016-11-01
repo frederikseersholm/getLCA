@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from get_LCA_functions import *
 from get_LCA_from_samlines import *
 import fileinput
