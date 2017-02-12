@@ -88,6 +88,12 @@ def find_parents(current_taxid):
             found = True      
         else:
             current_taxid = parent[current_taxid]
+            
+def find_parents_w_rank(current_taxid):
+    # first look up the taxid for the species of interest
+    a=find_parents(current_taxid)
+    b=find_rankofparents(current_taxid)
+    return([i+';'+j for i,j in zip(a,b)])
 
 
 def find_LCA(taxid1,taxid2):
