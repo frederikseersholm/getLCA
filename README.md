@@ -1,8 +1,7 @@
 # getLCA
 
-#################################
-GUIDE TO RUN THE SCRIPT getLCA.py
-#################################
+## GUIDE TO RUN THE SCRIPT getLCA.py
+
 
 1) Download the NCBI taxonomy files, names.dmp and nodes.dmp
 ```
