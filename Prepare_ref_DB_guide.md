@@ -3,10 +3,10 @@
 Below is a step-by-step guide to prepare the reference database in order to apply the python scripts included in this folder.
 
 1) Create a folder for DB files
-
+```
     mkdir DBfiles_getLCA
     cd DBfiles_getLCA
-
+```
 2) Download and unpack mitochondrial reference database in fasta format
 
     wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/mitochondrion/mitochondrion.?.1.genomic.fna.gz
