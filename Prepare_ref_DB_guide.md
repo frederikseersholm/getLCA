@@ -19,8 +19,6 @@ Below is a step-by-step guide to prepare the reference database in order to appl
 wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/nucl*gz
 gunzip *gz
 split -l 50000000 nucl_gb.accession2taxid nucl_gb.accession2taxid.
-split -l 50000000 nucl_est.accession2taxid nucl_est.accession2taxid.
-split -l 50000000 nucl_gss.accession2taxid nucl_gss.accession2taxid.
 split -l 50000000 nucl_wgs.accession2taxid nucl_wgs.accession2taxid.
  ```   
 4) Change path to NCBI index in the file add_taxid2db.py:
