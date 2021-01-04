@@ -42,7 +42,7 @@ def main():
         gi_dict[gi_nr]='TAXID_NOT_FOUND'
 ####################
     count=0
-    filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/Accession2taxid/nucl_*.accession2taxid.??')
+    filelist=glob.glob('/PATH/to/FILE/Accession2taxid/nucl_*.accession2taxid.??')
     for gi_name in filelist:
         count+=1
         #if count>2:
