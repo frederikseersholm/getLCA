@@ -1,4 +1,5 @@
-#Download and Format Full Mitochondrial Genomes Database for getLCA
+# Guide to prepare refence database for getLCA scripts
+## Download and Format Full Mitochondrial Genomes Database for getLCA
 
 Below is a step-by-step guide to prepare the reference database in order to apply the python scripts included in this folder.
 
