@@ -22,11 +22,11 @@ split -l 50000000 nucl_gb.accession2taxid nucl_gb.accession2taxid.
 split -l 50000000 nucl_wgs.accession2taxid nucl_wgs.accession2taxid.
  ```   
 4) Change path to NCBI index in the file add_taxid2db.py:
-open file 'add_taxid2db.py' on line 35, add the correct path to your 'gi_taxid_nucl.dmp' files
+open file 'add_taxid2acc_db.py' on line 35, add the correct path to your 'gi_taxid_nucl.dmp' files
 
-5) Add taxids to the fasta identifier in the database using the script 'add_taxid2db.py'
+5) Add taxids to the fasta identifier in the database using the script 'add_taxid2acc_db.py'
 ```
-    python ../add_taxid2db.py mitochondrion.genomic.fasta
+    python ../getLCA/add_taxid2acc_db.py mitochondrion.genomic.fasta
 ```
 OPTIONAL, if you're using bowtie: 
 6) Build bowtie2 index
