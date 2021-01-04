@@ -14,7 +14,7 @@ Below is a step-by-step guide to prepare the reference database in order to appl
     cat mitochondrion.?.1.genomic.fna >> mitochondrion.genomic.fasta
     rm mitochondrion.?.1.genomic.fna
 ```    
-3) Download the NCBI index with gi numbers and their corresponding taxids
+3) Download the NCBI index with accession numbers and their corresponding taxids
 ```
 wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/nucl*gz
 gunzip *gz
