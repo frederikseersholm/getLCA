@@ -11,7 +11,7 @@ def get_LCA_from_sam(samlines,length_threshold,id_threshold,distance):
             if 'NM:' in i:
                 nm=int(i.split(':')[2])
                 nms.append(nm)
-     
+
     samlines.sort(key=dict(zip(samlines, nms)).get)
     nms.sort()
     threshold=nms[0]+int(distance)
@@ -25,21 +25,21 @@ def get_LCA_from_sam(samlines,length_threshold,id_threshold,distance):
         if nm>threshold:
             break
         ids.append(taxid)
-####################find LCA if more than 1 id has been accepted################ 
+####################find LCA if more than 1 id has been accepted################
     try:
         lca=taxidlist2LCA(ids)
-	family=find_family(lca)
+        family=find_family(lca)
         lca=':'.join(find_parents(lca)).replace(' ','_')
     except:
         lca='NOMATCH_TAXID_NOT_FOUND'
-    	family='FAMILY_NOT_FOUND'
+        family='FAMILY_NOT_FOUND'
 
-    idp=nms[0]/float(l_seq) 
+    idp=nms[0]/float(l_seq)
     if float(l_seq)<float(length_threshold):
-        lca='NOMATCH_length_below_'+str(length_threshold)+lca    
+        lca='NOMATCH_length_below_'+str(length_threshold)+lca
     if (idp>(1-float(id_threshold))):#Similarity threshold set to 95%
-        lca='NOMATCH_similarity_below_'+str(id_threshold)+lca 
-   
-##################output line###############  
+        lca='NOMATCH_similarity_below_'+str(id_threshold)+lca
+
+##################output line###############
     stats='tothits:'+str(len(samlines))+'_accepted-hits:'+str(len(ids))+'_Min-NM:'+str(nms[0])
     return('\t'.join([text[0],lca,get_rank(lca).replace(' ','_'),':'.join(ids),stats,l_seq,seq,family])+'\n')
