@@ -14,7 +14,7 @@ def main():
     fastafile=arguments[0]
     if options.outfile is None:
         outfile=fastafile.replace('.fasta','.taxid.fasta')
-        print 'No output file specified, writing to: '+outfile
+        print('No output file specified, writing to: '+outfile)
     else:
         outfile=options.outfile
 ###################
@@ -42,8 +42,7 @@ def main():
         gi_dict[gi_nr]='TAXID_NOT_FOUND'
 ####################
     count=0
-    filelist=glob.glob('/groups/hologenomics/trold13/data/genomes/Accession2taxid/nucl_*.accession2taxid.??')
-    #filelist=glob.glob('/groups/hologenomics/trold13/data/genomes/Accession2taxid/test.acc2tax')	
+    filelist=glob.glob('/PATH/to/FILE/Accession2taxid/nucl_*.accession2taxid.??')	
     for gi_name in filelist:
         count+=1
         #if count>2:
