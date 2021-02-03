@@ -29,6 +29,22 @@ cd getLCA
 ```
     python get_LCA.py $filename.sam
 ```    
+It is normal to get an IndexError message, the file will still be generated.
+
+If you get a 'killed' message, this could be because the input sam file is too large. You can spilt the sam file: 
+```
+    samtools view -H yourfile.sam > your_header
+    samtools view yourfile.sam | split - yourprefix -l 8000000 --filter='cat your_header - > $FILE.sam'
+``` 
+Run get_LCA.py on all the resulting sams:
+```
+    python get_LCA.py $filename*.sam
+``` 
+And concatenate the outputs:
+```
+    cat *.getLCA > your_file.getLCA
+``` 
+
 #### OPTIONAL:
 #### 7) Report a sorted list of vertebrate species assigned below family level:
 ```
