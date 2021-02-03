@@ -1,5 +1,5 @@
 def get_LCA_from_sam(samlines,length_threshold,id_threshold,distance):
-    from get_LCA_functions import taxidlist2LCA,find_parents,get_rank,find_rankofparents,name1, find_family,id_from_name
+    from get_LCA_functions import taxidlist2LCA,find_parents,get_rank,find_rankofparents,name1, find_family, find_genus,id_from_name
     nms=[]
     threshold=[]
     ids=[]
@@ -29,10 +29,12 @@ def get_LCA_from_sam(samlines,length_threshold,id_threshold,distance):
     try:
         lca=taxidlist2LCA(ids)
         family=find_family(lca)
+        genus=find_genus(lca)
         lca=':'.join(find_parents(lca)).replace(' ','_')
     except:
         lca='NOMATCH_TAXID_NOT_FOUND'
         family='FAMILY_NOT_FOUND'
+        genus='GENUS_NOT_FOUND'
 
     idp=nms[0]/float(l_seq)
     if float(l_seq)<float(length_threshold):
@@ -42,4 +44,4 @@ def get_LCA_from_sam(samlines,length_threshold,id_threshold,distance):
 
 ##################output line###############
     stats='tothits:'+str(len(samlines))+'_accepted-hits:'+str(len(ids))+'_Min-NM:'+str(nms[0])
-    return('\t'.join([text[0],lca,get_rank(lca).replace(' ','_'),':'.join(ids),stats,l_seq,seq,family])+'\n')
+    return('\t'.join([text[0],lca,get_rank(lca).replace(' ','_'),':'.join(ids),stats,l_seq,seq,family,genus])+'\n')
