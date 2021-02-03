@@ -50,7 +50,9 @@ And concatenate the outputs:
 ``` 
 
 #### OPTIONAL:
-#### 8) Report a sorted list of vertebrate species assigned below family level:
+#### 8) An example of how to report a sorted list in the command line. This is command produces a list of vertebrate species assigned below family level:
 ```
     cat $filename.getLCA|grep -v 'NOMATCH'|grep 'genus\|family\|species\|subfamily\|subspecies\|subgenus'|grep 'Vertebrata'|awk '{print $2}'|sort|uniq -c|sort -nk1|awk -F ':' '{print $1}'
 ```
+
+For more detailed analysis of the identifcations use R. See the header names in .getlca_headers
