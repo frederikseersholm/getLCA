@@ -55,7 +55,8 @@ def main():
             lines.append(line)
             count_total+=1
         if 'lines' in locals():
-            outfile.write(get_LCA_from_sam(lines,options.length,options.id_threshold,options.distance))
+            	outfile.write(Read_info,LCA,Rank,Taxid,Stats,Sequence_length,Sequence,Family,Genus)
+		outfile.write(get_LCA_from_sam(lines,options.length,options.id_threshold,options.distance))
         outfile.close()
 
 
