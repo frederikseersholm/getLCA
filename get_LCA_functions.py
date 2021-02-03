@@ -62,6 +62,21 @@ def find_family(current_taxid):
             found = True      
         else:
             current_taxid = parent[current_taxid]
+            
+def find_genus(current_taxid):
+    parents=[] 
+    found = False
+    while found == False:
+        parents.append(name[current_taxid])
+        # find the rank of the parent
+        if (current_taxid == '1'):
+            return('NOGENUS_FOUND')
+            found = True
+        elif (rank[current_taxid] == 'genus'):
+            return(name[current_taxid])
+            found = True      
+        else:
+            current_taxid = parent[current_taxid]
 
 def get_rank(lca):
     if lca!='NOMATCH_1_ID_only':
