@@ -38,7 +38,7 @@ def main():
 		              continue
             text=line.split()
 
-            if text[0] in ['@SQ','@PG','@HD']:
+            if text[0] in ['@SQ','@PG','@HD','@RG']:
                 continue
 
 ############################ find LCA from all lines with the same sequence identifier (field #1 in samfile) ##############
