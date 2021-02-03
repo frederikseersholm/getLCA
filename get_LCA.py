@@ -43,7 +43,8 @@ def main():
 
 ############################ find LCA from all lines with the same sequence identifier (field #1 in samfile) ##############
             if text[0]!=prev_name and count_total!=0:
-
+		outfile.write("Read_info	LCA	Rank	Taxid	Stats	Seq_length	Sequence	Family	Genus")
+                outfile.write("\n")
                 outfile.write(get_LCA_from_sam(lines,options.length,options.id_threshold,options.distance))
                 count_total=0
 
@@ -55,7 +56,6 @@ def main():
             lines.append(line)
             count_total+=1
         if 'lines' in locals():
-            	outfile.write(Read_info,LCA,Rank,Taxid,Stats,Sequence_length,Sequence,Family,Genus)
 		outfile.write(get_LCA_from_sam(lines,options.length,options.id_threshold,options.distance))
         outfile.close()
 
