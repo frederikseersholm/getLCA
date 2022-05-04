@@ -21,17 +21,14 @@ def main():
     count=0
     gi_list=[]
     for record in SeqIO.parse(fastafile,format='fasta'):
-	#print record
         if '|' in record.description:
             split_header=record.description.split('|')
-            #print split_header
             gi_nr=[split_header[i+1] for i,j in enumerate(split_header) if j=='ref'][0]
             if gi_nr not in gi_list:
                 gi_list.append(gi_nr)
-        elif 'NC' in record.description:
-            #print record.description
+        else:
             split_header=record.description.split(' ')
-            gi_nr=[i for i in split_header if 'NC' in i][0]
+            gi_nr=split_header[0]
             if gi_nr not in gi_list:
                 gi_list.append(gi_nr)
             else:
@@ -42,7 +39,10 @@ def main():
         gi_dict[gi_nr]='TAXID_NOT_FOUND'
 ####################
     count=0
-    filelist=glob.glob('/PATH/to/FILE/Accession2taxid/nucl_*.accession2taxid.??')
+
+    #filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/fix_add_taxid2acc_db/nucl_gb.test')
+    #filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/Accession2taxid/nucl_gb.accession2taxid.ae')
+    filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/Accession2taxid/nucl_*.accession2taxid*.??')
     for gi_name in filelist:
         count+=1
         #if count>2:
@@ -70,6 +70,7 @@ def main():
                 except:
                     gi_dict[gi_nr]='TAXID_NOT_FOUND'
 
+
     print('\n"gi_taxid_nucl.dmp"-files loaded into memory \n')
     count=0
     outfile=open(outfile,'w')
@@ -81,11 +82,11 @@ def main():
             split_header=record.description.split('|')
             gi=[split_header[i+1] for i,j in enumerate(split_header) if j=='ref'][0]
 
-        elif 'NC' in record.description:
-            split_header=record.description.split(' ')
-            gi=[i for i in split_header if 'NC' in i][0]
         else:
-            gi='not_found'
+            split_header=record.description.split(' ')
+            gi=split_header[0]
+        #else:
+        #    gi='not_found'
 
         taxid=gi_dict.get(gi,'TAXID_NOT_FOUND_in_dict')
         record.description=taxid+'|'+record.description
