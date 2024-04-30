@@ -40,8 +40,6 @@ def main():
 ####################
     count=0
 
-    #filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/fix_add_taxid2acc_db/nucl_gb.test')
-    #filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/Accession2taxid/nucl_gb.accession2taxid.ae')
     filelist=glob.glob('/willerslev/users-shared/science-snm-willerslev-cqr376/software/getLCA/DBfiles_getLCA/Accession2taxid/nucl_*.accession2taxid*.??')
     for gi_name in filelist:
         count+=1
