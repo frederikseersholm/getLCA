@@ -13,7 +13,7 @@ gi2taxid={}
 lines_processed = 0
 for line in names.readlines():
     lines_processed = lines_processed + 1
-    if (lines_processed % 100000 == 0):
+    if (lines_processed % 1000000 == 0):
          print('names.dmp: processing line ' + str(lines_processed))
          
     text=line.replace('\t','').replace('\n','').split('|')
@@ -26,7 +26,7 @@ for line in names.readlines():
 lines_processed = 0        
 for line in nodes.readlines():
     lines_processed = lines_processed + 1
-    if (lines_processed % 100000 == 0):
+    if (lines_processed % 1000000 == 0):
          print('nodes.dmp: processing line ' + str(lines_processed))
     text=line.replace('\t','').replace('\n','').split('|')
     parent[text[0]]=text[1]
